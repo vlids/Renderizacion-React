@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 
-const BuscadorColaboradores = () => {
+const BuscadorColaboradores = ({lstColaboradores, setLstFiltrada}) => {
 
-    const [colaborador, setColaborador] = useState('')
+    const filtrarElementos = (valor) => {
+        const nuevoArreglo = lstColaboradores.filter((e) => e.nombre.includes(valor));
+        setLstFiltrada(nuevoArreglo);
+    }
 
   return (
     <div className='text-bg-dark'>
@@ -10,7 +13,7 @@ const BuscadorColaboradores = () => {
   <div className="container-fluid">
     <a className="navbar-brand text-light">Buscador Colaboradores</a>
     <form className="d-flex" role="search">
-      <input className="form-control me-2" type="search" placeholder="Nombre Colaborador" onChange={(c) => setColaborador(c.target.value)}/>
+      <input className="form-control me-2" type="search" placeholder="Nombre Colaborador" onChange={(e) => filtrarElementos(e.target.value)}/>
     </form>
   </div>
 </nav>

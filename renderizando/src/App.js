@@ -9,20 +9,26 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [lstColaboradores, setLstColaboradores] = useState(BaseColaboradores);
-  const [colaborador, setColaborador] = useState(lstColaboradores)
+  const [lstFiltrada, setLstFiltrada] = useState(BaseColaboradores);
+  
+
+
 
   return (
     <div className="App">
-      <BuscadorColaboradores>
-          setColaborador={setColaborador}
+      <BuscadorColaboradores 
+          lstColaboradores={lstColaboradores}
+          setLstFiltrada={setLstFiltrada}>
+          
       </BuscadorColaboradores>
       <Formulario 
           lstColaboradores={lstColaboradores}
-          setLstColaboradores={setLstColaboradores}>
+          setLstColaboradores={setLstColaboradores}
+          setLstFiltrada={setLstFiltrada}>
       </Formulario>
       <ListaColaboradores 
-          lstColaboradores={lstColaboradores}
-          setLstColaboradores={setLstColaboradores}>
+          lstColaboradores={lstFiltrada}
+          >
 
       </ListaColaboradores>
 

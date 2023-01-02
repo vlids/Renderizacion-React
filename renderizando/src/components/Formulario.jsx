@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 
-const Formulario = ({lstColaboradores, setLstColaboradores}) => {
+const Formulario = ({lstColaboradores, setLstColaboradores, setLstFiltrada}) => {
     
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
     
     const agregarColaborador = (e) => {
         e.preventDefault();
-        setLstColaboradores([...lstColaboradores,{nombre: nombre, correo: email}])
+        setLstColaboradores([...lstColaboradores,{nombre: nombre, correo: email}]);
+        setLstFiltrada([...lstColaboradores,{nombre: nombre, correo: email}])
     }
 
   return (
